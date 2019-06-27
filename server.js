@@ -15,31 +15,36 @@ var device = {
 */
 
 /*
-const {PubSub} = require('@google-cloud/pubsub');
-const pubsub = new PubSub();
 
 pubsub.getSubscriptions(function(err, subscriptions){
     subscriptions.forEach(subscription => console.log(subscription.name));
 })
 */
 
+const {PubSub} = require('@google-cloud/pubsub');
+const pubsub = new PubSub();
+
 pubsub
   .subscription('parking_sub')
   .on(`message`, message => {
     try {
       const msg = JSON.parse(message.data);
+      console.log("Thing received");
       const deviceId = msg.deviceID;
-      console.log(`Received message with ID: ${message.id}`);
+      console.log("Received message with status: " + msg.status);
+      var time = new Date(0);
+      time.setUTCSeconds(msg.time);
+      console.log("Received message with time: " + time);
       message.ack();
     } catch (err) {
-      console.log(`Error ocurred while processing message: ${err}`);
+      console.log("Error ocurred while processing message: ${err}");
     }
   })
   .on(`error`, err => {
-    console.log(`Error ocurred while receiving message: ${err}`);
+    console.log("Error ocurred while receiving message: ${err}");
   })
-  .on('close', () => {
-    lconsole.log(`subscription closed unexpectedly`);
+  .on(`close`, () => {
+    console.log("subscription closed unexpectedly");
   })
 
 http.createServer(function (req, res) {

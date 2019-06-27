@@ -1,0 +1,2 @@
+C:\Users\David Ang\source\repos\FedUPSnode\FedUPSnode\obj\Release\FedUPSnode.njsproj.CoreCompileInputs.cache
+C:\Users\David Ang\source\repos\FedUPSnode\FedUPSnode\bin\Microsoft.NodejsTools.WebRole.dll

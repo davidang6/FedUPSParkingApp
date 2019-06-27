@@ -1,7 +1,7 @@
 // 'use strict';
 var http = require('http');
 var fs = require('fs');
-var iothub = require('azure-iothub');
+// var iothub = require('azure-iothub');
 var port = process.env.PORT || 1337;
 
 //var connectionString = 'HostName=FedUPS.azure-devices.net;SharedAccessKeyName=FedUPS-iot-hub;SharedAccessKey=aA06gd7aqFKjbG9xOshttDRI36eh1fBcpgNLwtFc1eY=';
@@ -13,6 +13,13 @@ var device = {
     deviceId: 'sample-device-' + Date.now()
 };
 */
+
+const {PubSub} = require('@google-cloud/pubsub');
+const pubsub = new PubSub();
+
+pubsub.getSubscriptions(function(err, subscriptions){
+    subscriptions.forEach(subscription => console.log(subscription.name));
+})
 
 http.createServer(function (req, res) {
     fs.readFile("Page1.html", function (err, data) {

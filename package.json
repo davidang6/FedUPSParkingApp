@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@azure/event-hubs": "^2.1.0",
+    "@google-cloud/pubsub": "^0.30.1",
     "azure-iothub": "^1.9.9"
   }
 }

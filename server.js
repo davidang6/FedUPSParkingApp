@@ -14,12 +14,33 @@ var device = {
 };
 */
 
+/*
 const {PubSub} = require('@google-cloud/pubsub');
 const pubsub = new PubSub();
 
 pubsub.getSubscriptions(function(err, subscriptions){
     subscriptions.forEach(subscription => console.log(subscription.name));
 })
+*/
+
+pubsub
+  .subscription('parking_sub')
+  .on(`message`, message => {
+    try {
+      const msg = JSON.parse(message.data);
+      const deviceId = msg.deviceID;
+      console.log(`Received message with ID: ${message.id}`);
+      message.ack();
+    } catch (err) {
+      console.log(`Error ocurred while processing message: ${err}`);
+    }
+  })
+  .on(`error`, err => {
+    console.log(`Error ocurred while receiving message: ${err}`);
+  })
+  .on('close', () => {
+    lconsole.log(`subscription closed unexpectedly`);
+  })
 
 http.createServer(function (req, res) {
     fs.readFile("Page1.html", function (err, data) {

@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html
-<head>>
+<!DOCTYPE html>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,42 +46,7 @@
     }
 </style>
 
-<script>
-    const {PubSub} = require('@google-cloud/pubsub');
-    const pubsub = new PubSub();
-
-    pubsub
-    .subscription('parking_sub')
-    .on(`message`, message => {
-        try {
-            const msg = JSON.parse(message.data);
-            console.log("Thing received");
-            const deviceId = msg.deviceID;
-            console.log("Received message with status: " + msg.status);
-            var time = new Date(parseInt(msg.time)*1000).toString();
-            console.log("Received message with time: " + time);
-            // res.write("Status: " + msg.status + "\n");
-            // res.write("Time: " + time + "\n");
-            alert("MESSAGE RECEIVED");
-            $("#display").html("<br>Status: "+msg.status);
-            message.ack();
-        } catch (err) {
-            console.log("Error ocurred while processing message: " + err);
-        }
-    })
-    .on(`error`, err => {
-        console.log("Error ocurred while receiving message: " + err);
-    })
-    .on(`close`, () => {
-        console.log("subscription closed unexpectedly");
-    })
-
-    $(document).ready(function(){
-        $("#refresh").click(function(){
-            alert("button has been clicked");
-        });
-    });
-</script>
+<script src="pubsub.js"></script>
 
 </head>
 
@@ -97,13 +62,11 @@
     <div class="col-lg-6 col-sm-12 col-xs-12">
         <h1>My First Bootstrap Page</h1>
         <p>Resize this responsive page to see the effect!</p>
-        <form action=result.html>
 
-            <div style="background: #ccc; border-radius: 20px; color: #000">
-                <button id="refresh" class=btn-primary>Submit</button><br><br>
-                <div id="display"></div>
-            </div><br>
-        </form>
+        <div style="background: #ccc; border-radius: 20px; color: #000">
+            <button id="refresh" class=btn-primary>Submit</button><br><br>
+            <div id="display"></div><br><br><br>
+        </div><br>
     </div>
 
     <br><br><div id=animator></div><br><br>

@@ -1,101 +1,55 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href='https://fonts.googleapis.com/css?family=Concert One' rel='stylesheet'>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<style>
-
-    div {
-        margin: auto;
-        text-align: center;
-    }
-
-    body {
-        font-family: 'Concert One';
-        text-shadow: 2px 2px #aaa;
-        text-align: center;
-        margin: auto;
-        color: #fff;
-        background-color: #333;
-    }
-
-    #animator {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        animation: example 3s infinite linear;
-        border-radius: 50%;
-        border-top: 10px solid #3cba54;
-        border-right: 10px solid #f4c20d;
-        border-bottom: 10px solid #db3236;
-        border-left: 10px solid #4885ed;
-    }
-
-    @keyframes example {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Concert One' rel='stylesheet'>
+  <style>
+	body {
+		background-color: #ffb406;
+	}
+	#titlefont{
+	font-family: 'Concert One', sans-serif;
+	font-size: 60px;
+	text-align: center;
+	}
+	#upslogo{
+	height: 135px;
+	width: 135px;
+	align: right;
+	}
+	#titlebar{
+		background-color: #492914;
+		text-align: center;
+	}
 </style>
-
-<script src="pubsub.js"></script>
-
 </head>
-
 <body>
-    <h1> This is a header. </h1>
-    <h2> This is a smaller header. </h2>
-    <h3> This is an even smaller header. </h3>
-    This is a sentence in the body.
-
-    <br><br>
-
-
-    <div class="col-lg-6 col-sm-12 col-xs-12">
-        <h1>My First Bootstrap Page</h1>
-        <p>Resize this responsive page to see the effect!</p>
-
-        <div style="background: #ccc; border-radius: 20px; color: #000">
-            <button id="refresh" class=btn-primary>Submit</button><br><br>
-            <div id="display"></div><br><br><br>
-        </div><br>
+<div class="col-sm-612" id="titlebar" >
+<img id="upslogo" class="img-fluid" style="vertical-align:middle" src="http://pluspng.com/img-png/new-ups-logo-png-ups-logo-logotype-3410.png">
+<h1><font color="#ffb406" id="titlefont">Spotty</font></h1>
+</div>
+</br>
+  
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <p><a href="http://google.com"><img src="https://i.imgur.com/Tkvhzx7.png" class="img-fluid" alt="Responsive image"></p>
+	  </a>
     </div>
 
-    <br><br><div id=animator></div><br><br>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Column 1</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor..</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor..</p>
-            </div>
-        </div>
+     <div class="col-sm-6">
+      <p><a href="carpool.html"><img src="https://i.imgur.com/lunGV6k.png" class="img-fluid" alt="Responsive image"></p>
+	  </a>
     </div>
+   
+  </div>
+</div>
 
 </body>
-
+</html>
